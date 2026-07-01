@@ -7,7 +7,7 @@ services:
     depends_on:
       - backend
     environment:
-      - NEXT_PUBLIC_API_URL=http://backend:8000
+      - BACKEND_INTERNAL_URL=http://backend:8000
     networks:
       - app-network
 
@@ -21,6 +21,7 @@ services:
         condition: service_healthy
     environment:
       - DATABASE_URL=postgresql+psycopg://postgres:postgres123@db:5432/dsa_duel
+      - CORS_ORIGINS=http://localhost:3000,https://dsaduel.ranker.app,https://www.dsaduel.ranker.app,https://dsaduel-api.ranker.app,https://www.dsaduel-api.ranker.app
     networks:
       - app-network
 

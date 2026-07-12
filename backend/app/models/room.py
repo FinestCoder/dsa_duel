@@ -59,4 +59,4 @@ class Room(Base):
         server_default=func.now(),
     )
 
-    host = relationship("User", back_populates="hosted_rooms")
+    host: Mapped["User"] = relationship("User", back_populates="hosted_rooms")
